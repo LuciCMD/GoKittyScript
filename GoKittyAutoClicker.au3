@@ -9,6 +9,7 @@
 #ce ----------------------------------------------------------------------------
 
 #include <AutoItConstants.au3>
+#include <Misc.au3>
 
 Global $FreezeKitty = False
 
@@ -24,8 +25,10 @@ WEnd
 Func TogglePause() 
 	$FreezeKitty = Not $FreezeKitty
 	ToolTip("Inactive - Press Backspace to Activate", 100, 100, "Clicker Status", 1, 4)
+	_MouseTrap()
 	While $FreezeKitty
 		ToolTip("Active - Press Backspace to Deactivate", 100, 100, "Clicker Status", 1, 4)
+		_MouseTrap($KittyPos[0], $KittyPos[1], $KittyPos[0] + 50, $KittyPos[1])
 		MouseMove($KittyPos[0], $KittyPos[1])
 		Sleep(500)
 		MouseMove($KittyPos[0] + 50, $KittyPos[1])
