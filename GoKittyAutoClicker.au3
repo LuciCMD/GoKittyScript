@@ -13,7 +13,7 @@
 
 Global $FreezeKitty = False
 
-HotKeySet("{BACKSPACE}", "TogglePause") 
+HotKeySet("{BACKSPACE}", "TogglePause")
 HotKeySet("{ESCAPE}", "Terminate")
 ToolTip("Inactive - Press Backspace to Activate", 100, 100, "Clicker Status", 1, 4)
 
@@ -22,7 +22,7 @@ While $FreezeKitty = $FreezeKitty
 		Sleep(175)
 WEnd
 
-Func TogglePause() 
+Func TogglePause()
 	$FreezeKitty = Not $FreezeKitty
 	ToolTip("Inactive - Press Backspace to Activate", 100, 100, "Clicker Status", 1, 4)
 	_MouseTrap()
@@ -32,15 +32,14 @@ Func TogglePause()
 		MouseMove($KittyPos[0], $KittyPos[1])
 		Sleep(500)
 		MouseMove($KittyPos[0] + 50, $KittyPos[1])
-		Sleep (500)
+		Sleep(500)
 		MouseClick($MOUSE_CLICK_LEFT)
 		Sleep(500)
 	WEnd
 	EndFunc
 
 Func Terminate()
+				_MouseTrap()
+				Sleep(250)
         Exit
 EndFunc   ;==>Terminate
-
-
-
